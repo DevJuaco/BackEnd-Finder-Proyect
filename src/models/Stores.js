@@ -1,19 +1,19 @@
 const {Schema, model} = require('mongoose')
 
 const StoresSchema = new Schema({
-    storeId: {
-        type: String
-        
-    }
-})
-
-const counterSchema = new Schema({
-    id: {
-        type: String
+    storeName: {
+        type: String,
+        require: true 
     },
-    seq: {
-        type: Number
+    address: {
+        type: String,
+        require: true
+    },
+    urlLogo: {
+        type: String,
     }
+}, {
+    timestamps: true
 })
 
 const StoreModel = model(
