@@ -11,9 +11,10 @@ const
 app.use(express.json())
 app.use(cors())
 
-dbConection()
-
+app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/products', require('./routes/products.routes'))
+
+dbConection();
 
 app.listen(PORT, () => {
     console.log(`Servidor en el puerto ${PORT}`)
