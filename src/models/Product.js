@@ -3,7 +3,7 @@ const {Schema, model} = require('mongoose')
 const ProductSchema = new Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     description: {
         type: String,
@@ -12,9 +12,21 @@ const ProductSchema = new Schema({
         type: Number,
         default: 0
     },
+    quantity: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
-        require: true
+        required: true,
+        default: 'non-category'
+    },
+    urlImage: {
+        type: String
+    },
+    userId: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true

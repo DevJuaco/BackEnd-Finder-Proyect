@@ -22,7 +22,12 @@ async function findUserByUsername(username) {
     });
 }
 
+async function getOneUserById(id) {
+    return await UserModel.findById(id)
+}
+
 module.exports = {
     registerUser,
-    findUserByUsername
+    findUserByUsername,
+    getOneUserById
 }

@@ -1,7 +1,7 @@
 const { compareSync } = require('bcrypt');
 
 const UserModel = require('../models/User');
-const { findUserByUsername, registerUser } = require('../services/auth.service');
+const { findUserByUsername, registerUser, getOneUserById } = require('../services/auth.service');
 const { generateToken } = require('../helpers/jwt.helper');
 
 
@@ -54,6 +54,24 @@ const payload = {...userData},
         token
      });
 }
+
+const getUserById = async (req, res) => {
+    const user_id = req.params.id
+
+    try {
+        const data = await getOneUserById(user_id)
+        res.status(200).json({
+            ok: true,
+            data
+        })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({
+            ok: false,
+            msg: 'Error al obtener el usuario por id'
+        })
+    }
+}
 const renewToken = (req, res)=> {
     const userData = req.authUser; 
     const {id} = userData;
@@ -80,5 +98,6 @@ const newToken = generateToken ({...userData})
 module.exports = {
     login,
     register, 
-    renewToken
+    renewToken,
+    getUserById
 }
