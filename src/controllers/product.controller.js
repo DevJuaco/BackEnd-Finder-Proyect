@@ -57,6 +57,14 @@ async function getOne (req, res) {
 
 async function create (req, res) {
     const inputData = req.body
+    const payload = req.authUser
+
+    if (inputData?.category.length == 0) {
+        delete inputData.category
+    }
+
+    inputData.userId = payload._id
+    
     try {
         const newProduct = createProduct(inputData)
         res.json({
