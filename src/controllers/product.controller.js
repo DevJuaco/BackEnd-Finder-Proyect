@@ -50,7 +50,7 @@ async function getOne (req, res) {
         console.error(error)
         res.json({
             ok: false,
-            msg: 'ha ocurrido un error al obtener todos los productos'
+            msg: 'ha ocurrido un error al obtener el producto'
         })
     }
 }
