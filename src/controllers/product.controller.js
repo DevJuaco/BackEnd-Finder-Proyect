@@ -63,7 +63,7 @@ async function create (req, res) {
         delete inputData.category
     }
 
-    inputData.userId = payload._id
+    inputData.storeId = payload._id
     
     try {
         const newProduct = createProduct(inputData)

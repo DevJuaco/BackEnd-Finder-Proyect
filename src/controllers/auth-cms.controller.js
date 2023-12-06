@@ -23,7 +23,6 @@ const register = async(req, res) => {
 
 const login = async(req, res) => {
     const {mail, password} = req.body
-    const store_id = req.params.id
 
     const storeFound = await findStoreByStorename(mail)
 
@@ -50,7 +49,7 @@ const login = async(req, res) => {
         res.status(200).json({
             ok: true,
             token,
-            store_id
+            storeId: storeData._id
         })
 }
 

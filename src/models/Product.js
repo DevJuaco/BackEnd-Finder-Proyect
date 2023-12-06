@@ -24,7 +24,7 @@ const ProductSchema = new Schema({
     urlImage: {
         type: String
     },
-    userId: {
+    storeId: {
         type: String,
         required: true
     }
