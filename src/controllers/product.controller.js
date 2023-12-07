@@ -11,7 +11,7 @@ async function deleteOne (req, res) {
         })
     } catch (error) {
         console.error(error)
-        res({
+        res.json({
             ok: false,
             msg: "ha ocurrido un error al actualizar el producto"
         })
