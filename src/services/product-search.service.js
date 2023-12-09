@@ -16,7 +16,7 @@ async function searchProductByName (productName) {
             products.map(async (product) => {
                 const store = await StoreModel.findById(product.storeId)
                 return {
-                    product,
+                    //product,
                     store
                 }
             })
