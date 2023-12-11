@@ -14,11 +14,7 @@ async function searchProductByName (productName) {
 
         const storesAndProducts = await Promise.all(
             products.map(async (product) => {
-                const store = await StoreModel.findById(product.storeId)
-                return {
-                    //product,
-                    store
-                }
+                return store = await StoreModel.findById(product.storeId)
             })
         )
         return storesAndProducts
