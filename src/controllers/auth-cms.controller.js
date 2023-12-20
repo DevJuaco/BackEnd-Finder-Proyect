@@ -57,10 +57,10 @@ const getStoreById = async (req, res) => {
     const store_id = req.params.id
 
     try {
-        const data = await getOneStoreById(store_id)
+        const storeData = await getOneStoreById(store_id)
         res.status(200).json({
             ok: true,
-            data
+            storeData
         })
     } catch (error) {
         console.error(error)
